@@ -1,12 +1,10 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var images = require('./routes/users');
-
-var app = express();
+const app = express();
+const PORT = 3000
 
 app.use(logger('dev'));
 app.set('view engine', 'ejs')
@@ -31,10 +29,8 @@ router.post('/sft', (req, res, next) => {
   console.log(req.body)
   if (req.body) {
     currentSft = req.body.sfturl
-
   }
 });
-
 
 app.use('/', router);
 module.exports = app;
