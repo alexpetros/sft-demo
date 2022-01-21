@@ -21,10 +21,14 @@ const router = express.Router();
 router.get('/', (req, res) => { res.redirect('/home') })
 
 router.get('/home', (req, res) => {
-  res.render('index', { sfturl: currentSft });
+  res.render('index', { sfturl: currentSft })
 });
 
 /* Sft */
+router.get('/sft', (req, res, next) => {
+  res.redirect(currentSft)
+});
+
 router.post('/sft', (req, res, next) => {
   console.log(req.body)
   if (req.body) {
